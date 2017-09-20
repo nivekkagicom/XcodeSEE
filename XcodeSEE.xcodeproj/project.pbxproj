@@ -11,7 +11,37 @@
 		0A9E9B491F7287E000409E3B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A9E9B481F7287E000409E3B /* ViewController.swift */; };
 		0A9E9B4B1F7287E000409E3B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0A9E9B4A1F7287E000409E3B /* Assets.xcassets */; };
 		0A9E9B4E1F7287E000409E3B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0A9E9B4C1F7287E000409E3B /* Main.storyboard */; };
+		0A9E9B751F72C40300409E3B /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0A9E9B5C1F72884900409E3B /* Cocoa.framework */; };
+		0A9E9B781F72C40300409E3B /* UncrustifyExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A9E9B771F72C40300409E3B /* UncrustifyExtension.swift */; };
+		0A9E9B7A1F72C40300409E3B /* UncrustifyCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A9E9B791F72C40300409E3B /* UncrustifyCommand.swift */; };
+		0A9E9B7F1F72C40300409E3B /* Uncrustify.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 0A9E9B741F72C40300409E3B /* Uncrustify.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		0A9E9B851F72C66100409E3B /* source.cfg in Resources */ = {isa = PBXBuildFile; fileRef = 0A9E9B841F72C66100409E3B /* source.cfg */; };
+		0A9E9B861F72C67400409E3B /* uncrustify in Resources */ = {isa = PBXBuildFile; fileRef = 0A9E9B831F72C65900409E3B /* uncrustify */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		0A9E9B7D1F72C40300409E3B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0A9E9B3B1F7287E000409E3B /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 0A9E9B731F72C40300409E3B;
+			remoteInfo = Uncrustify;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		0A9E9B6B1F72884900409E3B /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				0A9E9B7F1F72C40300409E3B /* Uncrustify.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		0A9E9B431F7287E000409E3B /* XcodeSEE.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = XcodeSEE.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -21,6 +51,14 @@
 		0A9E9B4D1F7287E000409E3B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		0A9E9B4F1F7287E000409E3B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0A9E9B501F7287E000409E3B /* XcodeSEE.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = XcodeSEE.entitlements; sourceTree = "<group>"; };
+		0A9E9B5C1F72884900409E3B /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
+		0A9E9B741F72C40300409E3B /* Uncrustify.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = Uncrustify.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		0A9E9B771F72C40300409E3B /* UncrustifyExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UncrustifyExtension.swift; sourceTree = "<group>"; };
+		0A9E9B791F72C40300409E3B /* UncrustifyCommand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UncrustifyCommand.swift; sourceTree = "<group>"; };
+		0A9E9B7B1F72C40300409E3B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0A9E9B7C1F72C40300409E3B /* Uncrustify.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Uncrustify.entitlements; sourceTree = "<group>"; };
+		0A9E9B831F72C65900409E3B /* uncrustify */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.executable"; name = uncrustify; path = ../../../uncrustify/uncrustify/build/uncrustify; sourceTree = "<group>"; };
+		0A9E9B841F72C66100409E3B /* source.cfg */ = {isa = PBXFileReference; lastKnownFileType = text; name = source.cfg; path = ../../../../../.uncrustify/source.cfg; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,6 +69,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		0A9E9B711F72C40300409E3B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0A9E9B751F72C40300409E3B /* Cocoa.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -38,6 +84,8 @@
 			isa = PBXGroup;
 			children = (
 				0A9E9B451F7287E000409E3B /* XcodeSEE */,
+				0A9E9B761F72C40300409E3B /* Uncrustify */,
+				0A9E9B5B1F72884900409E3B /* Frameworks */,
 				0A9E9B441F7287E000409E3B /* Products */,
 			);
 			sourceTree = "<group>";
@@ -46,6 +94,7 @@
 			isa = PBXGroup;
 			children = (
 				0A9E9B431F7287E000409E3B /* XcodeSEE.app */,
+				0A9E9B741F72C40300409E3B /* Uncrustify.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -63,6 +112,27 @@
 			path = XcodeSEE;
 			sourceTree = "<group>";
 		};
+		0A9E9B5B1F72884900409E3B /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				0A9E9B5C1F72884900409E3B /* Cocoa.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		0A9E9B761F72C40300409E3B /* Uncrustify */ = {
+			isa = PBXGroup;
+			children = (
+				0A9E9B771F72C40300409E3B /* UncrustifyExtension.swift */,
+				0A9E9B791F72C40300409E3B /* UncrustifyCommand.swift */,
+				0A9E9B7B1F72C40300409E3B /* Info.plist */,
+				0A9E9B7C1F72C40300409E3B /* Uncrustify.entitlements */,
+				0A9E9B831F72C65900409E3B /* uncrustify */,
+				0A9E9B841F72C66100409E3B /* source.cfg */,
+			);
+			path = Uncrustify;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -73,15 +143,34 @@
 				0A9E9B3F1F7287E000409E3B /* Sources */,
 				0A9E9B401F7287E000409E3B /* Frameworks */,
 				0A9E9B411F7287E000409E3B /* Resources */,
+				0A9E9B6B1F72884900409E3B /* Embed App Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				0A9E9B7E1F72C40300409E3B /* PBXTargetDependency */,
 			);
 			name = XcodeSEE;
 			productName = XcodeSEE;
 			productReference = 0A9E9B431F7287E000409E3B /* XcodeSEE.app */;
 			productType = "com.apple.product-type.application";
+		};
+		0A9E9B731F72C40300409E3B /* Uncrustify */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 0A9E9B801F72C40300409E3B /* Build configuration list for PBXNativeTarget "Uncrustify" */;
+			buildPhases = (
+				0A9E9B701F72C40300409E3B /* Sources */,
+				0A9E9B711F72C40300409E3B /* Frameworks */,
+				0A9E9B721F72C40300409E3B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Uncrustify;
+			productName = Uncrustify;
+			productReference = 0A9E9B741F72C40300409E3B /* Uncrustify.appex */;
+			productType = "com.apple.product-type.xcode-extension";
 		};
 /* End PBXNativeTarget section */
 
@@ -94,6 +183,10 @@
 				ORGANIZATIONNAME = "B. Kevin Hardman";
 				TargetAttributes = {
 					0A9E9B421F7287E000409E3B = {
+						CreatedOnToolsVersion = 9.0;
+						ProvisioningStyle = Automatic;
+					};
+					0A9E9B731F72C40300409E3B = {
 						CreatedOnToolsVersion = 9.0;
 						ProvisioningStyle = Automatic;
 					};
@@ -113,6 +206,7 @@
 			projectRoot = "";
 			targets = (
 				0A9E9B421F7287E000409E3B /* XcodeSEE */,
+				0A9E9B731F72C40300409E3B /* Uncrustify */,
 			);
 		};
 /* End PBXProject section */
@@ -124,6 +218,15 @@
 			files = (
 				0A9E9B4B1F7287E000409E3B /* Assets.xcassets in Resources */,
 				0A9E9B4E1F7287E000409E3B /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0A9E9B721F72C40300409E3B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0A9E9B861F72C67400409E3B /* uncrustify in Resources */,
+				0A9E9B851F72C66100409E3B /* source.cfg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -139,7 +242,24 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		0A9E9B701F72C40300409E3B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0A9E9B781F72C40300409E3B /* UncrustifyExtension.swift in Sources */,
+				0A9E9B7A1F72C40300409E3B /* UncrustifyCommand.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		0A9E9B7E1F72C40300409E3B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 0A9E9B731F72C40300409E3B /* Uncrustify */;
+			targetProxy = 0A9E9B7D1F72C40300409E3B /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		0A9E9B4C1F7287E000409E3B /* Main.storyboard */ = {
@@ -262,11 +382,12 @@
 		0A9E9B541F7287E000409E3B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = XcodeSEE/XcodeSEE.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				DEVELOPMENT_TEAM = 4ZHSS5LTPP;
+				DEVELOPMENT_TEAM = BK85R8X44N;
 				INFOPLIST_FILE = XcodeSEE/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.harddays.XcodeSEE;
@@ -278,15 +399,48 @@
 		0A9E9B551F7287E000409E3B /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = XcodeSEE/XcodeSEE.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				DEVELOPMENT_TEAM = 4ZHSS5LTPP;
+				DEVELOPMENT_TEAM = BK85R8X44N;
 				INFOPLIST_FILE = XcodeSEE/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.harddays.XcodeSEE;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+			};
+			name = Release;
+		};
+		0A9E9B811F72C40300409E3B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = Uncrustify/Uncrustify.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = BK85R8X44N;
+				INFOPLIST_FILE = Uncrustify/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @executable_path/../../../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.harddays.XcodeSEE.Uncrustify;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.0;
+			};
+			name = Debug;
+		};
+		0A9E9B821F72C40300409E3B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = Uncrustify/Uncrustify.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = BK85R8X44N;
+				INFOPLIST_FILE = Uncrustify/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @executable_path/../../../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.harddays.XcodeSEE.Uncrustify;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 4.0;
 			};
 			name = Release;
@@ -308,6 +462,15 @@
 			buildConfigurations = (
 				0A9E9B541F7287E000409E3B /* Debug */,
 				0A9E9B551F7287E000409E3B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		0A9E9B801F72C40300409E3B /* Build configuration list for PBXNativeTarget "Uncrustify" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0A9E9B811F72C40300409E3B /* Debug */,
+				0A9E9B821F72C40300409E3B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
