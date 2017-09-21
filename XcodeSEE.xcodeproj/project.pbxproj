@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0A87432B1F745ABE001F0112 /* function in Resources */ = {isa = PBXBuildFile; fileRef = 0A9EE93D1F745936004D8CBE /* function */; };
+		0A87432C1F745AC1001F0112 /* message in Resources */ = {isa = PBXBuildFile; fileRef = 0A9EE93C1F745936004D8CBE /* message */; };
 		0A9E9B471F7287E000409E3B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A9E9B461F7287E000409E3B /* AppDelegate.swift */; };
 		0A9E9B491F7287E000409E3B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A9E9B481F7287E000409E3B /* ViewController.swift */; };
 		0A9E9B4B1F7287E000409E3B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0A9E9B4A1F7287E000409E3B /* Assets.xcassets */; };
@@ -59,6 +61,8 @@
 		0A9E9B7C1F72C40300409E3B /* Uncrustify.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Uncrustify.entitlements; sourceTree = "<group>"; };
 		0A9E9B831F72C65900409E3B /* uncrustify */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.executable"; name = uncrustify; path = ../../../uncrustify/uncrustify/build/uncrustify; sourceTree = "<group>"; };
 		0A9E9B841F72C66100409E3B /* source.cfg */ = {isa = PBXFileReference; lastKnownFileType = text; name = source.cfg; path = ../../../../../.uncrustify/source.cfg; sourceTree = "<group>"; };
+		0A9EE93C1F745936004D8CBE /* message */ = {isa = PBXFileReference; lastKnownFileType = text; name = message; path = ../../../../../.uncrustify/message; sourceTree = "<group>"; };
+		0A9EE93D1F745936004D8CBE /* function */ = {isa = PBXFileReference; lastKnownFileType = text; name = function; path = ../../../../../.uncrustify/function; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -129,6 +133,8 @@
 				0A9E9B7C1F72C40300409E3B /* Uncrustify.entitlements */,
 				0A9E9B831F72C65900409E3B /* uncrustify */,
 				0A9E9B841F72C66100409E3B /* source.cfg */,
+				0A9EE93D1F745936004D8CBE /* function */,
+				0A9EE93C1F745936004D8CBE /* message */,
 			);
 			path = Uncrustify;
 			sourceTree = "<group>";
@@ -227,6 +233,8 @@
 			files = (
 				0A9E9B861F72C67400409E3B /* uncrustify in Resources */,
 				0A9E9B851F72C66100409E3B /* source.cfg in Resources */,
+				0A87432B1F745ABE001F0112 /* function in Resources */,
+				0A87432C1F745AC1001F0112 /* message in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

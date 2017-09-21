@@ -189,39 +189,3 @@ class UncrustifyCommand: NSObject, XCSourceEditorCommand {
 
 }
 
-//if let outputString = UncrustifyCommand.run(commandPath,
-//                                              arguments: [ "-c", configPath, "-L", "2", "-l", "OC+" ],
-//                                              stdin: invocation.buffer.completeBuffer),
-//
-//	invocation.buffer.contentUTI == "public.objective-c-source" {
-//	invocation.buffer.lines.removeAllObjects()
-//
-//	let lines = outputString.characters.split(separator: "\n").map { String($0) }
-//	invocation.buffer.lines.addObjects(from: lines)
-//
-//	// Crashes Xcode when replacing `completeBuffer`
-//	//invocation.buffer.completeBuffer = outputString
-//	// If there is a no longer valid selection, Xcode crashes
-//	invocation.buffer.selections.removeAllObjects()
-//	// and it does the same if there aren't any selections, so we set the insertion point
-//	invocation.buffer.selections.add(XCSourceTextRange(start: XCSourceTextPosition(line: 0, column: 0),
-//	                                                   end: XCSourceTextPosition(line: 0, column: 0)))
-//}
-
-//-l           : Language override: C, CPP, D, CS, JAVA, PAWN, OC, OC+, VALA.
-//--frag       : Code fragment, assume the first line is indented correctly.
-
-//#!/usr/bin/perl
-//
-//my $filetype = "OC+";
-//my $config = "~/.uncrustify/source.cfg";
-//my $debug = "";
-//#$debug = "-p ~/x";
-//my $logging = "-L 2";
-//#$logging = "-L 66"; # LSPACE
-//#$logging = "-L 24"; # LINDPC
-//
-//open(UNCRUSTIFY, "|~/Documents/Unix/bin/uncrustify -c $config $logging -l $filetype $debug");
-//print UNCRUSTIFY do {local $/; <STDIN>};
-//close(UNCRUSTIFY);
-//print "\n";
