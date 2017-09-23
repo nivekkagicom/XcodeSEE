@@ -7,8 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0A87432B1F745ABE001F0112 /* function in Resources */ = {isa = PBXBuildFile; fileRef = 0A9EE93D1F745936004D8CBE /* function */; };
-		0A87432C1F745AC1001F0112 /* message in Resources */ = {isa = PBXBuildFile; fileRef = 0A9EE93C1F745936004D8CBE /* message */; };
 		0A9E9B471F7287E000409E3B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A9E9B461F7287E000409E3B /* AppDelegate.swift */; };
 		0A9E9B491F7287E000409E3B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A9E9B481F7287E000409E3B /* ViewController.swift */; };
 		0A9E9B4B1F7287E000409E3B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0A9E9B4A1F7287E000409E3B /* Assets.xcassets */; };
@@ -17,8 +15,13 @@
 		0A9E9B781F72C40300409E3B /* UncrustifyExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A9E9B771F72C40300409E3B /* UncrustifyExtension.swift */; };
 		0A9E9B7A1F72C40300409E3B /* UncrustifyCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A9E9B791F72C40300409E3B /* UncrustifyCommand.swift */; };
 		0A9E9B7F1F72C40300409E3B /* Uncrustify.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 0A9E9B741F72C40300409E3B /* Uncrustify.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
-		0A9E9B851F72C66100409E3B /* source.cfg in Resources */ = {isa = PBXBuildFile; fileRef = 0A9E9B841F72C66100409E3B /* source.cfg */; };
-		0A9E9B861F72C67400409E3B /* uncrustify in Resources */ = {isa = PBXBuildFile; fileRef = 0A9E9B831F72C65900409E3B /* uncrustify */; };
+		0ABDB6B11F768A65008FBC99 /* UncrustifyService.xpc in Embed XPC Services */ = {isa = PBXBuildFile; fileRef = 0ABDB6A61F768A65008FBC99 /* UncrustifyService.xpc */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		0ABDB6B81F768B18008FBC99 /* UncrustifyService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ABDB6B51F768B18008FBC99 /* UncrustifyService.swift */; };
+		0ABDB6B91F768B18008FBC99 /* UncrustifyServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ABDB6B61F768B18008FBC99 /* UncrustifyServiceProtocol.swift */; };
+		0ABDB6BA1F768B18008FBC99 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ABDB6B71F768B18008FBC99 /* main.swift */; };
+		0ABDB6BC1F768B31008FBC99 /* UncrustifyServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ABDB6BB1F768B31008FBC99 /* UncrustifyServiceProtocol.swift */; };
+		0ABDB6BE1F769713008FBC99 /* UncrustifyServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ABDB6BD1F769713008FBC99 /* UncrustifyServiceProtocol.swift */; };
+		0ABDB6C11F769DDA008FBC99 /* UncrustifyService.xpc in CopyFiles */ = {isa = PBXBuildFile; fileRef = 0ABDB6A61F768A65008FBC99 /* UncrustifyService.xpc */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -29,9 +32,27 @@
 			remoteGlobalIDString = 0A9E9B731F72C40300409E3B;
 			remoteInfo = Uncrustify;
 		};
+		0ABDB6AF1F768A65008FBC99 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0A9E9B3B1F7287E000409E3B /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 0ABDB6A51F768A65008FBC99;
+			remoteInfo = UncrustifyService;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
+		0A018E7D1F75FC5E0028ACCE /* Embed XPC Services */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "$(CONTENTS_FOLDER_PATH)/XPCServices";
+			dstSubfolderSpec = 16;
+			files = (
+				0ABDB6B11F768A65008FBC99 /* UncrustifyService.xpc in Embed XPC Services */,
+			);
+			name = "Embed XPC Services";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		0A9E9B6B1F72884900409E3B /* Embed App Extensions */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
@@ -41,6 +62,16 @@
 				0A9E9B7F1F72C40300409E3B /* Uncrustify.appex in Embed App Extensions */,
 			);
 			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0ABDB6C01F769DCC008FBC99 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "$(CONTENTS_FOLDER_PATH)/XPCServices";
+			dstSubfolderSpec = 16;
+			files = (
+				0ABDB6C11F769DDA008FBC99 /* UncrustifyService.xpc in CopyFiles */,
+			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXCopyFilesBuildPhase section */
@@ -59,10 +90,14 @@
 		0A9E9B791F72C40300409E3B /* UncrustifyCommand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UncrustifyCommand.swift; sourceTree = "<group>"; };
 		0A9E9B7B1F72C40300409E3B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0A9E9B7C1F72C40300409E3B /* Uncrustify.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Uncrustify.entitlements; sourceTree = "<group>"; };
-		0A9E9B831F72C65900409E3B /* uncrustify */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.executable"; name = uncrustify; path = ../../../uncrustify/uncrustify/build/uncrustify; sourceTree = "<group>"; };
-		0A9E9B841F72C66100409E3B /* source.cfg */ = {isa = PBXFileReference; lastKnownFileType = text; name = source.cfg; path = ../../../../../.uncrustify/source.cfg; sourceTree = "<group>"; };
-		0A9EE93C1F745936004D8CBE /* message */ = {isa = PBXFileReference; lastKnownFileType = text; name = message; path = ../../../../../.uncrustify/message; sourceTree = "<group>"; };
-		0A9EE93D1F745936004D8CBE /* function */ = {isa = PBXFileReference; lastKnownFileType = text; name = function; path = ../../../../../.uncrustify/function; sourceTree = "<group>"; };
+		0ABDB6A61F768A65008FBC99 /* UncrustifyService.xpc */ = {isa = PBXFileReference; explicitFileType = "wrapper.xpc-service"; includeInIndex = 0; path = UncrustifyService.xpc; sourceTree = BUILT_PRODUCTS_DIR; };
+		0ABDB6AE1F768A65008FBC99 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0ABDB6B51F768B18008FBC99 /* UncrustifyService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UncrustifyService.swift; sourceTree = "<group>"; };
+		0ABDB6B61F768B18008FBC99 /* UncrustifyServiceProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UncrustifyServiceProtocol.swift; sourceTree = "<group>"; };
+		0ABDB6B71F768B18008FBC99 /* main.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
+		0ABDB6BB1F768B31008FBC99 /* UncrustifyServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = UncrustifyServiceProtocol.swift; path = UncrustifyService/UncrustifyServiceProtocol.swift; sourceTree = SOURCE_ROOT; };
+		0ABDB6BD1F769713008FBC99 /* UncrustifyServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = UncrustifyServiceProtocol.swift; path = UncrustifyService/UncrustifyServiceProtocol.swift; sourceTree = SOURCE_ROOT; };
+		0ABDB6C21F769FC9008FBC99 /* UncrustifyService.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = UncrustifyService.entitlements; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,6 +116,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		0ABDB6A31F768A65008FBC99 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -89,6 +131,7 @@
 			children = (
 				0A9E9B451F7287E000409E3B /* XcodeSEE */,
 				0A9E9B761F72C40300409E3B /* Uncrustify */,
+				0ABDB6A71F768A65008FBC99 /* UncrustifyService */,
 				0A9E9B5B1F72884900409E3B /* Frameworks */,
 				0A9E9B441F7287E000409E3B /* Products */,
 			);
@@ -99,6 +142,7 @@
 			children = (
 				0A9E9B431F7287E000409E3B /* XcodeSEE.app */,
 				0A9E9B741F72C40300409E3B /* Uncrustify.appex */,
+				0ABDB6A61F768A65008FBC99 /* UncrustifyService.xpc */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -108,8 +152,9 @@
 			children = (
 				0A9E9B461F7287E000409E3B /* AppDelegate.swift */,
 				0A9E9B481F7287E000409E3B /* ViewController.swift */,
-				0A9E9B4A1F7287E000409E3B /* Assets.xcassets */,
 				0A9E9B4C1F7287E000409E3B /* Main.storyboard */,
+				0ABDB6BD1F769713008FBC99 /* UncrustifyServiceProtocol.swift */,
+				0A9E9B4A1F7287E000409E3B /* Assets.xcassets */,
 				0A9E9B4F1F7287E000409E3B /* Info.plist */,
 				0A9E9B501F7287E000409E3B /* XcodeSEE.entitlements */,
 			);
@@ -129,14 +174,23 @@
 			children = (
 				0A9E9B771F72C40300409E3B /* UncrustifyExtension.swift */,
 				0A9E9B791F72C40300409E3B /* UncrustifyCommand.swift */,
+				0ABDB6BB1F768B31008FBC99 /* UncrustifyServiceProtocol.swift */,
 				0A9E9B7B1F72C40300409E3B /* Info.plist */,
 				0A9E9B7C1F72C40300409E3B /* Uncrustify.entitlements */,
-				0A9E9B831F72C65900409E3B /* uncrustify */,
-				0A9E9B841F72C66100409E3B /* source.cfg */,
-				0A9EE93D1F745936004D8CBE /* function */,
-				0A9EE93C1F745936004D8CBE /* message */,
 			);
 			path = Uncrustify;
+			sourceTree = "<group>";
+		};
+		0ABDB6A71F768A65008FBC99 /* UncrustifyService */ = {
+			isa = PBXGroup;
+			children = (
+				0ABDB6B61F768B18008FBC99 /* UncrustifyServiceProtocol.swift */,
+				0ABDB6B51F768B18008FBC99 /* UncrustifyService.swift */,
+				0ABDB6B71F768B18008FBC99 /* main.swift */,
+				0ABDB6AE1F768A65008FBC99 /* Info.plist */,
+				0ABDB6C21F769FC9008FBC99 /* UncrustifyService.entitlements */,
+			);
+			path = UncrustifyService;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -150,11 +204,13 @@
 				0A9E9B401F7287E000409E3B /* Frameworks */,
 				0A9E9B411F7287E000409E3B /* Resources */,
 				0A9E9B6B1F72884900409E3B /* Embed App Extensions */,
+				0A018E7D1F75FC5E0028ACCE /* Embed XPC Services */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 				0A9E9B7E1F72C40300409E3B /* PBXTargetDependency */,
+				0ABDB6B01F768A65008FBC99 /* PBXTargetDependency */,
 			);
 			name = XcodeSEE;
 			productName = XcodeSEE;
@@ -168,6 +224,7 @@
 				0A9E9B701F72C40300409E3B /* Sources */,
 				0A9E9B711F72C40300409E3B /* Frameworks */,
 				0A9E9B721F72C40300409E3B /* Resources */,
+				0ABDB6C01F769DCC008FBC99 /* CopyFiles */,
 			);
 			buildRules = (
 			);
@@ -177,6 +234,23 @@
 			productName = Uncrustify;
 			productReference = 0A9E9B741F72C40300409E3B /* Uncrustify.appex */;
 			productType = "com.apple.product-type.xcode-extension";
+		};
+		0ABDB6A51F768A65008FBC99 /* UncrustifyService */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 0ABDB6B21F768A65008FBC99 /* Build configuration list for PBXNativeTarget "UncrustifyService" */;
+			buildPhases = (
+				0ABDB6A21F768A65008FBC99 /* Sources */,
+				0ABDB6A31F768A65008FBC99 /* Frameworks */,
+				0ABDB6A41F768A65008FBC99 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = UncrustifyService;
+			productName = UncrustifyService;
+			productReference = 0ABDB6A61F768A65008FBC99 /* UncrustifyService.xpc */;
+			productType = "com.apple.product-type.xpc-service";
 		};
 /* End PBXNativeTarget section */
 
@@ -191,10 +265,30 @@
 					0A9E9B421F7287E000409E3B = {
 						CreatedOnToolsVersion = 9.0;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.ApplicationGroups.Mac = {
+								enabled = 1;
+							};
+						};
 					};
 					0A9E9B731F72C40300409E3B = {
 						CreatedOnToolsVersion = 9.0;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.ApplicationGroups.Mac = {
+								enabled = 1;
+							};
+						};
+					};
+					0ABDB6A51F768A65008FBC99 = {
+						CreatedOnToolsVersion = 9.0;
+						LastSwiftMigration = 0900;
+						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.ApplicationGroups.Mac = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -213,6 +307,7 @@
 			targets = (
 				0A9E9B421F7287E000409E3B /* XcodeSEE */,
 				0A9E9B731F72C40300409E3B /* Uncrustify */,
+				0ABDB6A51F768A65008FBC99 /* UncrustifyService */,
 			);
 		};
 /* End PBXProject section */
@@ -231,10 +326,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0A9E9B861F72C67400409E3B /* uncrustify in Resources */,
-				0A9E9B851F72C66100409E3B /* source.cfg in Resources */,
-				0A87432B1F745ABE001F0112 /* function in Resources */,
-				0A87432C1F745AC1001F0112 /* message in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0ABDB6A41F768A65008FBC99 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -246,6 +344,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0A9E9B491F7287E000409E3B /* ViewController.swift in Sources */,
+				0ABDB6BE1F769713008FBC99 /* UncrustifyServiceProtocol.swift in Sources */,
 				0A9E9B471F7287E000409E3B /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -255,7 +354,18 @@
 			buildActionMask = 2147483647;
 			files = (
 				0A9E9B781F72C40300409E3B /* UncrustifyExtension.swift in Sources */,
+				0ABDB6BC1F768B31008FBC99 /* UncrustifyServiceProtocol.swift in Sources */,
 				0A9E9B7A1F72C40300409E3B /* UncrustifyCommand.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0ABDB6A21F768A65008FBC99 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0ABDB6B81F768B18008FBC99 /* UncrustifyService.swift in Sources */,
+				0ABDB6B91F768B18008FBC99 /* UncrustifyServiceProtocol.swift in Sources */,
+				0ABDB6BA1F768B18008FBC99 /* main.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -266,6 +376,11 @@
 			isa = PBXTargetDependency;
 			target = 0A9E9B731F72C40300409E3B /* Uncrustify */;
 			targetProxy = 0A9E9B7D1F72C40300409E3B /* PBXContainerItemProxy */;
+		};
+		0ABDB6B01F768A65008FBC99 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 0ABDB6A51F768A65008FBC99 /* UncrustifyService */;
+			targetProxy = 0ABDB6AF1F768A65008FBC99 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -395,7 +510,7 @@
 				CODE_SIGN_ENTITLEMENTS = XcodeSEE/XcodeSEE.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				DEVELOPMENT_TEAM = BK85R8X44N;
+				DEVELOPMENT_TEAM = 9K27VUYL9J;
 				INFOPLIST_FILE = XcodeSEE/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.harddays.XcodeSEE;
@@ -412,7 +527,7 @@
 				CODE_SIGN_ENTITLEMENTS = XcodeSEE/XcodeSEE.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				DEVELOPMENT_TEAM = BK85R8X44N;
+				DEVELOPMENT_TEAM = 9K27VUYL9J;
 				INFOPLIST_FILE = XcodeSEE/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.harddays.XcodeSEE;
@@ -427,7 +542,7 @@
 				CODE_SIGN_ENTITLEMENTS = Uncrustify/Uncrustify.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				DEVELOPMENT_TEAM = BK85R8X44N;
+				DEVELOPMENT_TEAM = 9K27VUYL9J;
 				INFOPLIST_FILE = Uncrustify/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @executable_path/../../../../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.harddays.XcodeSEE.Uncrustify;
@@ -443,13 +558,52 @@
 				CODE_SIGN_ENTITLEMENTS = Uncrustify/Uncrustify.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				DEVELOPMENT_TEAM = BK85R8X44N;
+				DEVELOPMENT_TEAM = 9K27VUYL9J;
 				INFOPLIST_FILE = Uncrustify/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @executable_path/../../../../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.harddays.XcodeSEE.Uncrustify;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 4.0;
+			};
+			name = Release;
+		};
+		0ABDB6B31F768A65008FBC99 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = UncrustifyService/UncrustifyService.entitlements;
+				CODE_SIGN_IDENTITY = "Mac Developer";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = 9K27VUYL9J;
+				INFOPLIST_FILE = UncrustifyService/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @executable_path/../../../../Frameworks @executable_path/../../../../../../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.harddays.XcodeSEE.UncrustifyService;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		0ABDB6B41F768A65008FBC99 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = UncrustifyService/UncrustifyService.entitlements;
+				CODE_SIGN_IDENTITY = "Mac Developer";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = 9K27VUYL9J;
+				INFOPLIST_FILE = UncrustifyService/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @executable_path/../../../../Frameworks @executable_path/../../../../../../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.harddays.XcodeSEE.UncrustifyService;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};
@@ -479,6 +633,15 @@
 			buildConfigurations = (
 				0A9E9B811F72C40300409E3B /* Debug */,
 				0A9E9B821F72C40300409E3B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		0ABDB6B21F768A65008FBC99 /* Build configuration list for PBXNativeTarget "UncrustifyService" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0ABDB6B31F768A65008FBC99 /* Debug */,
+				0ABDB6B41F768A65008FBC99 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

@@ -32,7 +32,7 @@
 					<key>XCSourceEditorCommandClassName</key>
 					<string>$(PRODUCT_MODULE_NAME).UncrustifyCommand</string>
 					<key>XCSourceEditorCommandIdentifier</key>
-					<string>$(PRODUCT_BUNDLE_IDENTIFIER).UncrustifyCommand.fragment</string>
+					<string>$(PRODUCT_BUNDLE_IDENTIFIER).fragment</string>
 					<key>XCSourceEditorCommandName</key>
 					<string>Fragment</string>
 				</dict>
@@ -40,7 +40,7 @@
 					<key>XCSourceEditorCommandClassName</key>
 					<string>$(PRODUCT_MODULE_NAME).UncrustifyCommand</string>
 					<key>XCSourceEditorCommandIdentifier</key>
-					<string>$(PRODUCT_BUNDLE_IDENTIFIER).UncrustifyCommand.selection</string>
+					<string>$(PRODUCT_BUNDLE_IDENTIFIER).selection</string>
 					<key>XCSourceEditorCommandName</key>
 					<string>Selection</string>
 				</dict>
@@ -48,7 +48,7 @@
 					<key>XCSourceEditorCommandClassName</key>
 					<string>$(PRODUCT_MODULE_NAME).UncrustifyCommand</string>
 					<key>XCSourceEditorCommandIdentifier</key>
-					<string>$(PRODUCT_BUNDLE_IDENTIFIER).UncrustifyCommand.source</string>
+					<string>$(PRODUCT_BUNDLE_IDENTIFIER).source</string>
 					<key>XCSourceEditorCommandName</key>
 					<string>Source</string>
 				</dict>

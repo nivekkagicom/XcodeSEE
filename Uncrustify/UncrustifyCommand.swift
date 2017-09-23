@@ -9,9 +9,7 @@
 import Foundation
 import XcodeKit
 
-enum SIGError: Swift.Error {
-	case unsupportedLanguage
-	case noSelection
+enum UncrustifyError: Swift.Error {
 	case invalidSelection
 	case parseError
 }
@@ -29,12 +27,34 @@ extension String {
 }
 
 class UncrustifyCommand: NSObject, XCSourceEditorCommand {
-	var commandPath: String {
-		return Bundle.main.path(forResource: "uncrustify", ofType: nil)!
+
+	lazy var connection: NSXPCConnection = {
+		let connection = NSXPCConnection(serviceName: "com.harddays.XcodeSEE.UncrustifyService")
+		connection.remoteObjectInterface = NSXPCInterface(with: UncrustifyServiceProtocol.self)
+		connection.resume()
+		return connection
+	}()
+
+	var usersCommandURL: URL? {
+		let sharedDefaults = UserDefaults(suiteName: "9K27VUYL9J.com.harddays.XcodeSEE")
+		if let toolpath = sharedDefaults?.data(forKey: "toolpath") {
+			var stale : Bool = false
+			if let url = try? URL(resolvingBookmarkData: toolpath, options: .withSecurityScope, relativeTo: nil, bookmarkDataIsStale: &stale) {
+				return url
+			}
+		}
+		return Bundle.main.url(forResource: "uncrustify", withExtension: nil)
 	}
 
-	var configPath: String {
-		return Bundle.main.path(forResource: "source", ofType: "cfg")!
+	var userConfigURL: URL? {
+		let sharedDefaults = UserDefaults(suiteName: "9K27VUYL9J.com.harddays.XcodeSEE")
+		if let configpath = sharedDefaults?.data(forKey: "configpath") {
+			var stale : Bool = false
+			if let url = try? URL(resolvingBookmarkData: configpath, options: .withSecurityScope, relativeTo: nil, bookmarkDataIsStale: &stale) {
+				return url
+			}
+		}
+		return Bundle.main.url(forResource: "source", withExtension: "cfg")
 	}
 
 	static func run(_ commandPath: String, arguments: [String], stdin: String) -> String? {
@@ -65,21 +85,6 @@ class UncrustifyCommand: NSObject, XCSourceEditorCommand {
 		return String(data: outputData, encoding: .utf8)
 	}
 
-	func sourceFormat(with invocation: XCSourceEditorCommandInvocation) -> String? {
-		switch invocation.buffer.contentUTI as CFString {
-		case kUTTypeCSource:
-			return "C"
-		case kUTTypeObjectiveCSource:
-			return "OC"
-		case kUTTypeCPlusPlusSource:
-			return "CPP"
-		case kUTTypeObjectiveCPlusPlusSource:
-			return "OC+"
-		default:
-			return nil
-		}
-	}
-
 	func sourceRange(range inRange: XCSourceTextRange) -> CountableClosedRange<NSInteger> {
 		if inRange.end.column == 0 {
 			return inRange.start.line...inRange.end.line - 1
@@ -95,22 +100,35 @@ class UncrustifyCommand: NSObject, XCSourceEditorCommand {
 		return source
 	}
 
-	func uncrustify(format inFormat: String, source inSource: String, additionalArguments inArguments: [String] = []) -> String? {
-		return UncrustifyCommand.run(commandPath,
-		                               arguments: [ "-c", configPath, "-L", "2", "-l", inFormat ] + inArguments,
-		                               stdin: inSource)
+	func uncrustify(withType inType: String, source inSource: String, additionalArguments inArguments: [String] = []) -> String? {
+		let downloadGroup = DispatchGroup()
+		downloadGroup.enter()
+
+		let handler: (Error) -> () = { error in
+			print("remote proxy error: \(error)")
+			downloadGroup.leave()
+		}
+		var output: String? = nil
+		let service = connection.remoteObjectProxyWithErrorHandler(handler) as! UncrustifyServiceProtocol
+		service.uncrustify(withType: inType, source: inSource, additionalArguments: inArguments) { (inOutput) in
+			output = inOutput
+			downloadGroup.leave()
+		}
+		downloadGroup.wait()
+
+		return output
 	}
 
-	func uncrustifyFragment(with invocation: XCSourceEditorCommandInvocation, format inFormat: String) -> SIGError? {
+	func uncrustifyFragment(with invocation: XCSourceEditorCommandInvocation) -> UncrustifyError? {
 		for index in 0..<invocation.buffer.selections.count {
 			let range = sourceRange(range: invocation.buffer.selections[index] as! XCSourceTextRange)
 
 			guard let source = sourceText(with: invocation, range:range) as String? else {
-				return SIGError.invalidSelection
+				return UncrustifyError.invalidSelection
 			}
 
-			guard let output = uncrustify(format: inFormat, source: source, additionalArguments:["--frag"]) as String? else {
-				return SIGError.parseError
+			guard let output = uncrustify(withType: invocation.buffer.contentUTI, source: source, additionalArguments:["--frag"]) as String? else {
+				return UncrustifyError.parseError
 			}
 
 			let lines = output.strings(terminatedBy: NSCharacterSet.newlines)
@@ -124,16 +142,16 @@ class UncrustifyCommand: NSObject, XCSourceEditorCommand {
 		return nil
 	}
 
-	func uncrustifySelection(with invocation: XCSourceEditorCommandInvocation, format inFormat: String) -> SIGError? {
+	func uncrustifySelection(with invocation: XCSourceEditorCommandInvocation) -> UncrustifyError? {
 		for index in 0..<invocation.buffer.selections.count {
 			let range = sourceRange(range: invocation.buffer.selections[index] as! XCSourceTextRange)
 
 			guard let source = sourceText(with: invocation, range:range) as String? else {
-				return SIGError.invalidSelection
+				return UncrustifyError.invalidSelection
 			}
 
-			guard let output = uncrustify(format: inFormat, source: source) as String? else {
-				return SIGError.parseError
+			guard let output = uncrustify(withType: invocation.buffer.contentUTI, source: source, additionalArguments: []) else {
+				return UncrustifyError.parseError
 			}
 
 			let lines = output.strings(terminatedBy: NSCharacterSet.newlines)
@@ -147,13 +165,13 @@ class UncrustifyCommand: NSObject, XCSourceEditorCommand {
 		return nil
 	}
 
-	func uncrustifySource(with invocation: XCSourceEditorCommandInvocation, format inFormat: String) -> SIGError? {
+	func uncrustifySource(with invocation: XCSourceEditorCommandInvocation) -> UncrustifyError? {
 		guard let source = invocation.buffer.completeBuffer as String? else {
-			return SIGError.invalidSelection
+			return UncrustifyError.invalidSelection
 		}
 
-		guard let output = uncrustify(format: inFormat, source: source) as String? else {
-			return SIGError.parseError
+		guard let output = uncrustify(withType: invocation.buffer.contentUTI, source: source) as String? else {
+			return UncrustifyError.parseError
 		}
 
 		let lines = output.strings(terminatedBy: NSCharacterSet.newlines)
@@ -166,22 +184,18 @@ class UncrustifyCommand: NSObject, XCSourceEditorCommand {
 		// and it does the same if there aren't any selections, so we set the insertion point
 		invocation.buffer.selections.add(XCSourceTextRange(start: XCSourceTextPosition(line: 0, column: 0),
 		                                                   end: XCSourceTextPosition(line: 0, column: 0)))
-		return nil;
+		return nil
 	}
 
     func perform(with invocation: XCSourceEditorCommandInvocation, completionHandler: @escaping (Error?) -> Void ) -> Void {
         // Implement your command here, invoking the completion handler when done. Pass it nil on success, and an NSError on failure.
-		guard let format = sourceFormat(with: invocation) as String? else {
-			return completionHandler(SIGError.unsupportedLanguage)
-		}
-
 		switch invocation.commandIdentifier {
-		case "com.harddays.XcodeSEE.Uncrustify.UncrustifyCommand.fragment":
-			return completionHandler(uncrustifyFragment(with: invocation, format: format))
-		case "com.harddays.XcodeSEE.Uncrustify.UncrustifyCommand.selection":
-			return completionHandler(uncrustifySelection(with: invocation, format: format))
-		case "com.harddays.XcodeSEE.Uncrustify.UncrustifyCommand.source":
-			return completionHandler(uncrustifySource(with: invocation, format: format))
+		case "com.harddays.XcodeSEE.Uncrustify.fragment":
+			return completionHandler(uncrustifyFragment(with: invocation))
+		case "com.harddays.XcodeSEE.Uncrustify.selection":
+			return completionHandler(uncrustifySelection(with: invocation))
+		case "com.harddays.XcodeSEE.Uncrustify.source":
+			return completionHandler(uncrustifySource(with: invocation))
 		default:
 			completionHandler(nil)
 		}
