@@ -142,6 +142,29 @@ class UncrustifyCommand: NSObject, XCSourceEditorCommand {
 		return nil
 	}
 
+	func uncrustifyFunction(with invocation: XCSourceEditorCommandInvocation) -> UncrustifyError? {
+		for index in 0..<invocation.buffer.selections.count {
+			let range = sourceRange(range: invocation.buffer.selections[index] as! XCSourceTextRange)
+
+			guard let source = "#pragma fake\n" + sourceText(with: invocation, range:range)! as String? else {
+				return UncrustifyError.invalidSelection
+			}
+
+			guard let output = uncrustify(withType: invocation.buffer.contentUTI, source: source, additionalArguments: []) else {
+				return UncrustifyError.parseError
+			}
+
+			let lines = Array(output.strings(terminatedBy: NSCharacterSet.newlines)[1...])
+
+			invocation.buffer.lines.replaceObjects(in: NSMakeRange(range.lowerBound, range.count), withObjectsFrom: lines)
+
+			invocation.buffer.selections.replaceObject(at: index,
+													   with: XCSourceTextRange(start: XCSourceTextPosition(line: range.lowerBound, column: 0),
+																			   end: XCSourceTextPosition(line: range.lowerBound + lines.count, column: 0)))
+		}
+		return nil
+	}
+
 	func uncrustifySelection(with invocation: XCSourceEditorCommandInvocation) -> UncrustifyError? {
 		for index in 0..<invocation.buffer.selections.count {
 			let range = sourceRange(range: invocation.buffer.selections[index] as! XCSourceTextRange)
@@ -192,6 +215,8 @@ class UncrustifyCommand: NSObject, XCSourceEditorCommand {
 		switch invocation.commandIdentifier {
 		case "com.harddays.XcodeSEE.Uncrustify.fragment":
 			return completionHandler(uncrustifyFragment(with: invocation))
+		case "com.harddays.XcodeSEE.Uncrustify.function":
+			return completionHandler(uncrustifyFunction(with: invocation));
 		case "com.harddays.XcodeSEE.Uncrustify.selection":
 			return completionHandler(uncrustifySelection(with: invocation))
 		case "com.harddays.XcodeSEE.Uncrustify.source":
