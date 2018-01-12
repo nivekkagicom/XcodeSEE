@@ -36,18 +36,17 @@ import Foundation
 
 	func sourceFormat(withType: String) -> String? {
 		//-l           : Language override: C, CPP, D, CS, JAVA, PAWN, OC, OC+, VALA.
-		switch withType as CFString {
-		case kUTTypeCSource:
-			return "C"
-		case kUTTypeObjectiveCSource:
+		let type = withType as CFString
+		if (UTTypeConformsTo(type, kUTTypeObjectiveCSource)) {
 			return "OC"
-		case kUTTypeCPlusPlusSource:
-			return "CPP"
-		case kUTTypeObjectiveCPlusPlusSource:
-			return "OC+"
-		default:
-			return "C"
 		}
+		if (UTTypeConformsTo(type, kUTTypeCPlusPlusSource)) {
+			return "CPP"
+		}
+		if (UTTypeConformsTo(type, kUTTypeObjectiveCPlusPlusSource)) {
+			return "OC+"
+		}
+		return "C"
 	}
 
 	static func run(_ commandPath: String, arguments: [String], stdin: String) -> String? {
