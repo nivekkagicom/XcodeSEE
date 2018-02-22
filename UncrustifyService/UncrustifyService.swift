@@ -46,6 +46,22 @@ import Foundation
 		if (UTTypeConformsTo(type, kUTTypeObjectiveCPlusPlusSource)) {
 			return "OC+"
 		}
+		if (UTTypeConformsTo(type, kUTTypeCPlusPlusHeader)) {
+			let sharedDefaults = UserDefaults(suiteName: "9K27VUYL9J.com.harddays.XcodeSEE")
+			if sharedDefaults!.bool(forKey: "always_objective-cpp") {
+				return "OC+"
+			}
+			return "CPP"
+		}
+		if (UTTypeConformsTo(type, kUTTypeCHeader)) {
+			let sharedDefaults = UserDefaults(suiteName: "9K27VUYL9J.com.harddays.XcodeSEE")
+			if sharedDefaults!.bool(forKey: "always_cpp") {
+				if sharedDefaults!.bool(forKey: "always_objective-cpp") {
+					return "OC+"
+				}
+				return "CPP"
+			}
+		}
 		return "C"
 	}
 

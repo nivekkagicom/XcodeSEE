@@ -9,6 +9,9 @@
 import Cocoa
 
 class ViewController: NSViewController {
+	enum Format: UInt {
+		case objective_cpp = 0, objective_c, cpp, c, hpp, h
+	}
 
 	lazy var connection: NSXPCConnection = {
 		let connection = NSXPCConnection(serviceName: "com.harddays.XcodeSEE.UncrustifyService")
@@ -18,6 +21,48 @@ class ViewController: NSViewController {
 	}()
 
 	@objc dynamic var code : String?
+
+	@objc dynamic var format : UInt {
+		get {
+			let sharedDefaults = UserDefaults(suiteName: "9K27VUYL9J.com.harddays.XcodeSEE")
+			guard let format = sharedDefaults?.integer(forKey: "format") else {
+				return 0
+			}
+			return UInt(format)
+		}
+		set {
+			let sharedDefaults = UserDefaults(suiteName: "9K27VUYL9J.com.harddays.XcodeSEE")
+			sharedDefaults?.set(newValue, forKey: "format")
+		}
+	}
+
+	@objc dynamic var cpp : Bool {
+		get {
+			let sharedDefaults = UserDefaults(suiteName: "9K27VUYL9J.com.harddays.XcodeSEE")
+			guard let alwayscpp = sharedDefaults?.bool(forKey: "always_cpp") else {
+				return false
+			}
+			return alwayscpp
+		}
+		set {
+			let sharedDefaults = UserDefaults(suiteName: "9K27VUYL9J.com.harddays.XcodeSEE")
+			sharedDefaults?.set(newValue, forKey: "always_cpp")
+		}
+	}
+
+	@objc dynamic var ocpp : Bool {
+		get {
+			let sharedDefaults = UserDefaults(suiteName: "9K27VUYL9J.com.harddays.XcodeSEE")
+			guard let alwaysocpp = sharedDefaults?.bool(forKey: "always_objective-cpp") else {
+				return false
+			}
+			return alwaysocpp;
+		}
+		set {
+			let sharedDefaults = UserDefaults(suiteName: "9K27VUYL9J.com.harddays.XcodeSEE")
+			sharedDefaults?.set(newValue, forKey: "always_objective-cpp")
+		}
+	}
 
 	@objc dynamic var config : URL? {
 		get {
@@ -143,8 +188,25 @@ class ViewController: NSViewController {
 		let handler: (Error) -> () = { error in
 			print("remote proxy error: \(error)")
 		}
+		var type = kUTTypeObjectiveCSource
+		if let format = Format(rawValue: self.format) {
+			switch (format) {
+			case .objective_cpp:
+				type = kUTTypeObjectiveCPlusPlusSource
+			case .objective_c:
+				type = kUTTypeObjectiveCSource
+			case .cpp:
+				type = kUTTypeCPlusPlusSource
+			case .c:
+				type = kUTTypeCSource
+			case .hpp:
+				type = kUTTypeCPlusPlusHeader
+			case .h:
+				type = kUTTypeCHeader
+			}
+		}
 		let service = connection.remoteObjectProxyWithErrorHandler(handler) as! UncrustifyServiceProtocol
-		service.uncrustify(withType: kUTTypeObjectiveCSource as String, source: source, additionalArguments: []) { [weak self] (output) in
+		service.uncrustify(withType: type as String, source: source, additionalArguments: []) { [weak self] (output) in
 			OperationQueue.main.addOperation({
 				self?.code = output
 			})
