@@ -9,5 +9,5 @@
 import Foundation
 
 @objc protocol UncrustifyServiceProtocol {
-	func uncrustify(withType inType: String, source inSource: String, additionalArguments inArguments: [String], withReply: (String?)->())
+	func uncrustify(withType inType: String, source inSource: String, additionalArguments inArguments: [String], withReply: @escaping (String?)->())
 }
