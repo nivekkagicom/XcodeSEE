@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="14269.14" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="13771"/>
-        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
-        <capability name="box content view" minToolsVersion="7.0"/>
+        <deployment identifier="macosx"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14269.14"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -686,7 +685,7 @@
         <scene sceneID="R2V-B0-nI4">
             <objects>
                 <windowController id="B8D-0N-5wS" sceneMemberID="viewController">
-                    <window key="window" title="XcodeSEE Settings" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" visibleAtLaunch="NO" animationBehavior="default" id="IQv-IB-iLA">
+                    <window key="window" title="XcodeSEE Settings" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" animationBehavior="default" id="IQv-IB-iLA">
                         <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
                         <rect key="contentRect" x="196" y="240" width="480" height="300"/>
                         <rect key="screenRect" x="0.0" y="0.0" width="1680" height="1027"/>
@@ -711,17 +710,16 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES"/>
                         <subviews>
                             <box title="uncrustify tool path:" translatesAutoresizingMaskIntoConstraints="NO" id="jJf-Bv-2TL">
-                                <rect key="frame" x="17" y="455" width="446" height="77"/>
+                                <rect key="frame" x="17" y="454" width="446" height="78"/>
                                 <view key="contentView" id="TDL-nP-5AX">
-                                    <rect key="frame" x="2" y="2" width="442" height="60"/>
+                                    <rect key="frame" x="3" y="3" width="440" height="60"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <pathControl verticalHuggingPriority="750" allowsExpansionToolTips="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4HM-8M-jMR">
-                                            <rect key="frame" x="20" y="20" width="402" height="20"/>
+                                            <rect key="frame" x="20" y="20" width="400" height="20"/>
                                             <pathCell key="cell" controlSize="small" selectable="YES" editable="YES" alignment="left" id="Hmy-8m-5kJ">
                                                 <font key="font" metaFont="smallSystem"/>
                                                 <url key="url" string="file://localhost/Applications/"/>
-                                                <color key="backgroundColor" red="0.89803921568627454" green="0.92549019607843142" blue="0.97254901960784312" alpha="1" colorSpace="deviceRGB"/>
                                             </pathCell>
                                             <connections>
                                                 <action selector="chooseToolPathWithSender:" target="XfG-lQ-9wD" id="I60-QP-QzT"/>
@@ -742,17 +740,16 @@
                                 </view>
                             </box>
                             <box title="uncrustify configuration file:" translatesAutoresizingMaskIntoConstraints="NO" id="Foy-HU-3ls">
-                                <rect key="frame" x="17" y="374" width="446" height="77"/>
+                                <rect key="frame" x="17" y="372" width="446" height="78"/>
                                 <view key="contentView" id="Wrv-n2-N5U">
-                                    <rect key="frame" x="2" y="2" width="442" height="60"/>
+                                    <rect key="frame" x="3" y="3" width="440" height="60"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <pathControl verticalHuggingPriority="750" allowsExpansionToolTips="YES" translatesAutoresizingMaskIntoConstraints="NO" id="C3e-br-aLE">
-                                            <rect key="frame" x="20" y="20" width="402" height="20"/>
+                                            <rect key="frame" x="20" y="20" width="400" height="20"/>
                                             <pathCell key="cell" controlSize="small" selectable="YES" editable="YES" alignment="left" id="fSp-Dn-hhG">
                                                 <font key="font" metaFont="smallSystem"/>
                                                 <url key="url" string="file://localhost/Applications/"/>
-                                                <color key="backgroundColor" red="0.89803921568627454" green="0.92549019607843142" blue="0.97254901960784312" alpha="1" colorSpace="deviceRGB"/>
                                             </pathCell>
                                             <connections>
                                                 <action selector="chooseConfigPathWithSender:" target="XfG-lQ-9wD" id="0Nd-r3-4oZ"/>
@@ -794,24 +791,25 @@
                                 </connections>
                             </button>
                             <box title="Test Code to Format:" translatesAutoresizingMaskIntoConstraints="NO" id="lfO-F6-5bd">
-                                <rect key="frame" x="17" y="57" width="446" height="220"/>
+                                <rect key="frame" x="17" y="57" width="446" height="217"/>
                                 <view key="contentView" id="p3Z-jl-n2J">
-                                    <rect key="frame" x="2" y="2" width="442" height="203"/>
+                                    <rect key="frame" x="3" y="3" width="440" height="199"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <scrollView horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" hasHorizontalScroller="NO" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EMT-QV-G4a">
-                                            <rect key="frame" x="0.0" y="0.0" width="442" height="155"/>
-                                            <clipView key="contentView" id="4yK-AN-yPU">
-                                                <rect key="frame" x="1" y="1" width="440" height="153"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="440" height="151"/>
+                                            <clipView key="contentView" drawsBackground="NO" id="4yK-AN-yPU">
+                                                <rect key="frame" x="1" y="1" width="438" height="149"/>
                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                 <subviews>
                                                     <textView importsGraphics="NO" richText="NO" verticallyResizable="YES" usesFontPanel="YES" findStyle="panel" continuousSpellChecking="YES" allowsUndo="YES" usesRuler="YES" allowsNonContiguousLayout="YES" quoteSubstitution="YES" dashSubstitution="YES" spellingCorrection="YES" smartInsertDelete="YES" id="WHR-D4-uV7">
-                                                        <rect key="frame" x="0.0" y="0.0" width="440" height="153"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="438" height="149"/>
                                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                        <size key="minSize" width="440" height="153"/>
+                                                        <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                                        <size key="minSize" width="438" height="149"/>
                                                         <size key="maxSize" width="463" height="10000000"/>
-                                                        <color key="insertionPointColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                                        <color key="insertionPointColor" name="textColor" catalog="System" colorSpace="catalog"/>
                                                         <connections>
                                                             <binding destination="XfG-lQ-9wD" name="value" keyPath="code" id="fnH-7M-fA7">
                                                                 <dictionary key="options">
@@ -822,19 +820,18 @@
                                                         </connections>
                                                     </textView>
                                                 </subviews>
-                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             </clipView>
-                                            <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" doubleValue="1" horizontal="YES" id="efR-BR-UIW">
+                                            <scroller key="horizontalScroller" hidden="YES" wantsLayer="YES" verticalHuggingPriority="750" doubleValue="1" horizontal="YES" id="efR-BR-UIW">
                                                 <rect key="frame" x="-100" y="-100" width="87" height="18"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                             </scroller>
-                                            <scroller key="verticalScroller" verticalHuggingPriority="750" doubleValue="1" horizontal="NO" id="zAd-db-jnx">
-                                                <rect key="frame" x="425" y="1" width="16" height="153"/>
+                                            <scroller key="verticalScroller" wantsLayer="YES" verticalHuggingPriority="750" doubleValue="1" horizontal="NO" id="zAd-db-jnx">
+                                                <rect key="frame" x="423" y="1" width="16" height="149"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                             </scroller>
                                         </scrollView>
                                         <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="v85-ni-DL0">
-                                            <rect key="frame" x="107" y="166" width="97" height="17"/>
+                                            <rect key="frame" x="106" y="162" width="97" height="17"/>
                                             <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Source Format:" id="YML-RR-XkU">
                                                 <font key="font" metaFont="system"/>
                                                 <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -842,7 +839,7 @@
                                             </textFieldCell>
                                         </textField>
                                         <popUpButton verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="b9x-iw-YtC">
-                                            <rect key="frame" x="208" y="160" width="127" height="26"/>
+                                            <rect key="frame" x="207" y="156" width="128" height="26"/>
                                             <popUpButtonCell key="cell" type="push" title="Objective-C++" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" selectedItem="b2A-cn-tA5" id="O3A-s1-2xb">
                                                 <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
                                                 <font key="font" metaFont="menu"/>
@@ -881,13 +878,13 @@
                                 </view>
                             </box>
                             <box title="Options" translatesAutoresizingMaskIntoConstraints="NO" id="YoB-Mt-kUy">
-                                <rect key="frame" x="17" y="281" width="444" height="91"/>
+                                <rect key="frame" x="17" y="278" width="444" height="92"/>
                                 <view key="contentView" id="3q5-v0-VNg">
-                                    <rect key="frame" x="2" y="2" width="440" height="74"/>
+                                    <rect key="frame" x="3" y="3" width="438" height="74"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="8CN-Ly-NbO">
-                                            <rect key="frame" x="18" y="18" width="404" height="18"/>
+                                            <rect key="frame" x="18" y="18" width="402" height="18"/>
                                             <buttonCell key="cell" type="check" title="Use Obective-C++ for all C++ headers" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="k1f-hq-8nB">
                                                 <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                                 <font key="font" metaFont="system"/>
@@ -897,7 +894,7 @@
                                             </connections>
                                         </button>
                                         <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="XQT-d5-tVN">
-                                            <rect key="frame" x="18" y="38" width="404" height="18"/>
+                                            <rect key="frame" x="18" y="38" width="402" height="18"/>
                                             <buttonCell key="cell" type="check" title="Use C++ for all C headers" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="llN-JY-Y7q">
                                                 <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                                 <font key="font" metaFont="system"/>
