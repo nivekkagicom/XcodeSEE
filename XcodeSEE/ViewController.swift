@@ -75,7 +75,7 @@ class ViewController: NSViewController {
 				return nil
 			}
 			if stale {
-				guard let data = try? url?.bookmarkData(options: [.withSecurityScope, .securityScopeAllowOnlyReadAccess ], includingResourceValuesForKeys: [], relativeTo: nil) else {
+				guard let data = try? url.bookmarkData(options: [.withSecurityScope, .securityScopeAllowOnlyReadAccess ], includingResourceValuesForKeys: [], relativeTo: nil) else {
 					return url;
 				}
 				sharedDefaults?.set(data, forKey: "configpath")
@@ -102,7 +102,7 @@ class ViewController: NSViewController {
 				return nil
 			}
 			if stale {
-				guard let data = try? url?.bookmarkData(options: [.withSecurityScope, .securityScopeAllowOnlyReadAccess ], includingResourceValuesForKeys: [], relativeTo: nil) else {
+				guard let data = try? url.bookmarkData(options: [.withSecurityScope, .securityScopeAllowOnlyReadAccess ], includingResourceValuesForKeys: [], relativeTo: nil) else {
 					return url;
 				}
 				sharedDefaults?.set(data, forKey: "toolpath")
