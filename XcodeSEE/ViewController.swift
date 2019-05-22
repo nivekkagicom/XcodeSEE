@@ -83,7 +83,7 @@ class ViewController: NSViewController {
 			return url
 		}
 		set {
-			guard let data = try? newValue?.bookmarkData(options: [.withSecurityScope, .securityScopeAllowOnlyReadAccess ], includingResourceValuesForKeys: [], relativeTo: nil) else {
+			guard let data = ((try? newValue?.bookmarkData(options: [.withSecurityScope, .securityScopeAllowOnlyReadAccess ], includingResourceValuesForKeys: [], relativeTo: nil)) as Data??) else {
 				return;
 			}
 			let sharedDefaults = UserDefaults(suiteName: "9K27VUYL9J.com.harddays.XcodeSEE")
@@ -110,7 +110,7 @@ class ViewController: NSViewController {
 			return url
 		}
 		set {
-			guard let data = try? newValue?.bookmarkData(options: [.withSecurityScope, .securityScopeAllowOnlyReadAccess ], includingResourceValuesForKeys: [], relativeTo: nil) else {
+			guard let data = ((try? newValue?.bookmarkData(options: [.withSecurityScope, .securityScopeAllowOnlyReadAccess ], includingResourceValuesForKeys: [], relativeTo: nil)) as Data??) else {
 				return;
 			}
 			let sharedDefaults = UserDefaults(suiteName: "9K27VUYL9J.com.harddays.XcodeSEE")
