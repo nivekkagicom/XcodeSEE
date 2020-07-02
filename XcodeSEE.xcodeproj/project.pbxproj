@@ -270,6 +270,9 @@
 							com.apple.ApplicationGroups.Mac = {
 								enabled = 1;
 							};
+							com.apple.HardenedRuntime = {
+								enabled = 1;
+							};
 							com.apple.Sandbox = {
 								enabled = 1;
 							};
@@ -283,6 +286,9 @@
 							com.apple.ApplicationGroups.Mac = {
 								enabled = 1;
 							};
+							com.apple.HardenedRuntime = {
+								enabled = 1;
+							};
 							com.apple.Sandbox = {
 								enabled = 1;
 							};
@@ -294,6 +300,9 @@
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.ApplicationGroups.Mac = {
+								enabled = 1;
+							};
+							com.apple.HardenedRuntime = {
 								enabled = 1;
 							};
 						};
@@ -518,7 +527,8 @@
 				CODE_SIGN_ENTITLEMENTS = XcodeSEE/XcodeSEE.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				DEVELOPMENT_TEAM = 9K27VUYL9J;
+				DEVELOPMENT_TEAM = PZM93MW7N8;
+				ENABLE_HARDENED_RUNTIME = YES;
 				INFOPLIST_FILE = XcodeSEE/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.harddays.XcodeSEE;
@@ -535,7 +545,8 @@
 				CODE_SIGN_ENTITLEMENTS = XcodeSEE/XcodeSEE.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				DEVELOPMENT_TEAM = 9K27VUYL9J;
+				DEVELOPMENT_TEAM = PZM93MW7N8;
+				ENABLE_HARDENED_RUNTIME = YES;
 				INFOPLIST_FILE = XcodeSEE/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.harddays.XcodeSEE;
@@ -550,7 +561,8 @@
 				CODE_SIGN_ENTITLEMENTS = Uncrustify/Uncrustify.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				DEVELOPMENT_TEAM = 9K27VUYL9J;
+				DEVELOPMENT_TEAM = PZM93MW7N8;
+				ENABLE_HARDENED_RUNTIME = YES;
 				INFOPLIST_FILE = Uncrustify/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @executable_path/../../../../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.harddays.XcodeSEE.Uncrustify;
@@ -566,7 +578,8 @@
 				CODE_SIGN_ENTITLEMENTS = Uncrustify/Uncrustify.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				DEVELOPMENT_TEAM = 9K27VUYL9J;
+				DEVELOPMENT_TEAM = PZM93MW7N8;
+				ENABLE_HARDENED_RUNTIME = YES;
 				INFOPLIST_FILE = Uncrustify/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @executable_path/../../../../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.harddays.XcodeSEE.Uncrustify;
@@ -584,7 +597,8 @@
 				CODE_SIGN_IDENTITY = "Mac Developer";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				DEVELOPMENT_TEAM = 9K27VUYL9J;
+				DEVELOPMENT_TEAM = PZM93MW7N8;
+				ENABLE_HARDENED_RUNTIME = YES;
 				INFOPLIST_FILE = UncrustifyService/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @executable_path/../../../../Frameworks @executable_path/../../../../../../../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.harddays.XcodeSEE.UncrustifyService;
@@ -604,7 +618,8 @@
 				CODE_SIGN_IDENTITY = "Mac Developer";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				DEVELOPMENT_TEAM = 9K27VUYL9J;
+				DEVELOPMENT_TEAM = PZM93MW7N8;
+				ENABLE_HARDENED_RUNTIME = YES;
 				INFOPLIST_FILE = UncrustifyService/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @executable_path/../../../../Frameworks @executable_path/../../../../../../../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.harddays.XcodeSEE.UncrustifyService;
